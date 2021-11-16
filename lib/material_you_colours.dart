@@ -1,5 +1,4 @@
 import 'dart:async' show Future;
-import 'dart:convert' show json;
 
 import 'package:flutter/foundation.dart'
     show TargetPlatform, defaultTargetPlatform;
@@ -22,30 +21,25 @@ import 'package:flutter/services.dart' show MethodChannel, PlatformException;
 class MaterialYouColours {
   static const MethodChannel _channel = MethodChannel('material_you_colours');
 
-  static Future<String?> get platformVersion async {
-    final String? version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+  static Future<Map<String, String>?> getMaterialYouColours() async {
+    return await _channel.invokeMethod('getMaterialYouColours');
   }
 }
-
-const platform = MethodChannel('com.example.app/colors');
 
 Future<MaterialYouPalette?> getMaterialYouColor() async {
   // Material You colors are available on Android only
   if (defaultTargetPlatform != TargetPlatform.android) return null;
 
   try {
-    final data = await platform.invokeMethod('getMaterialYouColors');
+    final data = await MaterialYouColours.getMaterialYouColours();
     if (data == null) return null;
 
-    final Map<String, dynamic> items =
-        (json.decode(data) as Map<String, dynamic>);
     return MaterialYouPalette(
-      accent1: items.getAccent1(),
-      accent2: items.getAccent2(),
-      accent3: items.getAccent3(),
-      neutral1: items.getNeutral1(),
-      neutral2: items.getNeutral2(),
+      accent1: data.getAccent1(),
+      accent2: data.getAccent2(),
+      accent3: data.getAccent3(),
+      neutral1: data.getNeutral1(),
+      neutral2: data.getNeutral2(),
     );
   } on PlatformException catch (_) {
     return null;
@@ -117,7 +111,7 @@ extension _ColorExtractionExtension on Map<String, dynamic> {
   }
 }
 
-Future<ThemeData> build() async {
+Future<ThemeData> getThemeData() async {
   var data = await getMaterialYouColor();
   final primarySwatch = data?.accent1 ?? Colors.blue;
   final accent2Swatch = data?.accent2 ?? Colors.blue;
