@@ -26,7 +26,7 @@ class MaterialYouColours {
   }
 }
 
-Future<MaterialYouPalette?> getMaterialYouColor() async {
+Future<MaterialYouPalette?> getMaterialYouColours() async {
   // Material You colors are available on Android only
   if (defaultTargetPlatform != TargetPlatform.android) return null;
 
@@ -111,8 +111,8 @@ extension _ColorExtractionExtension on Map<String, dynamic> {
   }
 }
 
-Future<ThemeData> getThemeData() async {
-  var data = await getMaterialYouColor();
+Future<ThemeData> getMaterialYouThemeData() async {
+  var data = await getMaterialYouColours();
   final primarySwatch = data?.accent1 ?? Colors.blue;
   final accent2Swatch = data?.accent2 ?? Colors.blue;
   final accent3Swatch = data?.accent3 ?? Colors.blue;
