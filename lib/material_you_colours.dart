@@ -31,8 +31,9 @@ Future<MaterialYouPalette?> getMaterialYouColours() async {
   if (defaultTargetPlatform != TargetPlatform.android) return null;
 
   try {
-    final data = await MaterialYouColours.getMaterialYouColours();
-    if (data == null) return null;
+    final datam = await MaterialYouColours.getMaterialYouColours();
+    if (datam == null) return null;
+    var data = datam.map((key, value) => MapEntry(key as String, value as String));
 
     return MaterialYouPalette(
       accent1: data.getAccent1(),
