@@ -12,3 +12,5 @@ jobs:
         with:
           channel: beta
       - run: flutter analyze
+      - run: flutter analyze
+        working-directory: example
