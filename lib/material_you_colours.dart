@@ -21,7 +21,7 @@ import 'package:flutter/services.dart' show MethodChannel, PlatformException;
 class MaterialYouColours {
   static const MethodChannel _channel = MethodChannel('material_you_colours');
 
-  static Future<Map<String, String>?> getMaterialYouColours() async {
+  static Future<Map<Object?, Object?>?> getMaterialYouColours() async {
     return await _channel.invokeMethod('getMaterialYouColours');
   }
 }
