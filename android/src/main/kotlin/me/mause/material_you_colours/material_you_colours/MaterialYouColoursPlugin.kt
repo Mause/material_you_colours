@@ -10,10 +10,12 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import android.os.Build
 import androidx.core.content.res.ResourcesCompat
+import java.util.logging.Logger
 
 /** MaterialYouColoursPlugin */
 class MaterialYouColoursPlugin: FlutterPlugin, MethodCallHandler {
   private var appContext: Context? = null
+  private val logger = Logger.getLogger(MaterialYouColoursPlugin::class.simpleName!!)
 
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
@@ -117,8 +119,10 @@ class MaterialYouColoursPlugin: FlutterPlugin, MethodCallHandler {
             "system_neutral2_1000" to android.R.color.system_neutral2_1000
     )
             .map { (name, id) ->
+              logger.info("name: $name");
               val color = ResourcesCompat.getColor(appContext!!.resources, id, appContext!!.theme)
               val colorHex = Integer.toHexString(color)
+              logger.info("colorhex: $colorHex");
               return mapOf(name to colorHex)
             }
             .toMap()
