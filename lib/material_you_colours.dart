@@ -63,8 +63,7 @@ class MaterialYouPalette {
   });
 }
 
-int _parseHexString(String value) =>
-    int.parse(value.substring(3, 9), radix: 16) + 0xFF000000;
+int _parseHexString(String value) => int.parse(value, radix: 16);
 
 extension _ColorExtractionExtension on Map<String, dynamic> {
   Color getColor(String colorName) {
