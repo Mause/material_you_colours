@@ -15,7 +15,7 @@ import java.util.logging.Logger
 /** MaterialYouColoursPlugin */
 class MaterialYouColoursPlugin: FlutterPlugin, MethodCallHandler {
   private var appContext: Context? = null
-  private val logger = Logger.getLogger(MaterialYouColoursPlugin::class.simpleName!!)
+  private val logger = Logger.getLogger("MaterialYouColoursPlugin")
 
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
