@@ -11,4 +11,9 @@ jobs:
         uses: subosito/flutter-action@v1.5.3
         with:
           channel: beta
+      - run: flutter pub get
+      - run: flutter pub get
+        working-directory: example
       - run: flutter analyze
+      - run: flutter analyze
+        working-directory: example
