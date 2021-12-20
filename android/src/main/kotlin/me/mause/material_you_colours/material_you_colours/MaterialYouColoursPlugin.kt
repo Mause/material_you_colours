@@ -123,7 +123,7 @@ class MaterialYouColoursPlugin: FlutterPlugin, MethodCallHandler {
               val color = ResourcesCompat.getColor(appContext!!.resources, id, appContext!!.theme)
               val colorHex = Integer.toHexString(color)
               logger.info("colorhex: $colorHex");
-              return mapOf(name to colorHex)
+              name to colorHex
             }
             .toMap()
   }
