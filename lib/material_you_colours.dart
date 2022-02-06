@@ -117,6 +117,7 @@ Future<ThemeData> getMaterialYouThemeData() async {
   final accent2Swatch = data?.accent2 ?? Colors.blue;
   final accent3Swatch = data?.accent3 ?? Colors.blue;
   return ThemeData(
+    useMaterial3: true,
     primarySwatch: primarySwatch,
     checkboxTheme: CheckboxThemeData(
       fillColor: MaterialStateProperty.resolveWith((states) => accent2Swatch),
