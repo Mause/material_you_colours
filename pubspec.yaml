@@ -1,7 +1,7 @@
 name: material_you_colours
 description: A new Flutter project.
-version: 0.0.1
-homepage:
+version: 0.0.1-pre0
+repository: https://github.com/Mause/material_you_colours
 
 environment:
   sdk: ">=2.15.0-268.8.beta <3.0.0"
