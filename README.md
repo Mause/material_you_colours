@@ -1,15 +1,25 @@
 # material_you_colours
 
-A new Flutter project.
+Should be fairly straightforward to use - example is below
 
-## Getting Started
+```dart
+import 'package:flutter/flutter.dart';
+import 'package:material_you_colours/material_you_colours.dart'
+    show getMaterialYouThemeData;
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+        future: getMaterialYouThemeData(),
+        builder: (BuildContext context, AsyncSnapshot<ThemeData?> theme) =>
+            MaterialApp(
+              title: 'My App',
+              theme: theme.data ?? ThemeData.fallback(),
+              home: const MyHomePage(title: 'My App'),
+            ));
+  }
+}
+```
