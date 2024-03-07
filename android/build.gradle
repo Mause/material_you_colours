@@ -2,7 +2,7 @@ group 'me.mause.material_you_colours.material_you_colours'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.9.10'
+    ext.kotlin_version = '1.9.23'
     repositories {
         google()
         mavenCentral()
