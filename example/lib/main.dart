@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:material_you_colours/material_you_colours.dart' show getMaterialYouThemeData;
+import 'package:material_you_colours/material_you_colours.dart'
+    show getMaterialYouThemeData;
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
